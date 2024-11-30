@@ -1,7 +1,8 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
 import "./time.css"
-export default function TimeWidget() {
+export default function TimeWidget(props) {
+  const {timeRef} = props
   const [time, setTime] = useState({
     hours: "00",
     minutes: "00",
@@ -45,51 +46,34 @@ export default function TimeWidget() {
     const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval); // Cleanup the interval on component unmount
   }, []);
+  
   const renderDigits = (value) => {
     return (
       <>
         <div className={"first"}>
-          <div>{value[0]}</div>
+          <div className="number">{value[0]}</div>
         </div>
-        <div className={"second"}>
-          <div>{value[1]}</div>
+        <div className={"second infinite"}>
+          <div className="number">{value[1]}</div>
         </div>
       </>
     );
   };
 
   return (
-    <div id="time-box">
+    <div id="time-box" ref={timeRef}>
       
-    <div class="clock">
-  <div class="hours">
+    <div className="clock">
+  <div className="hours">
       {renderDigits(time.hours)}
-    {/* <div class="first">
-      <div class="number">0</div>
-      </div>
-      <div class="second">
-      <div class="number">0</div>
-      </div> */}
   </div>
-  <div class="tick">:</div>
-  <div class="minutes">
+  <div className="tick">:</div>
+  <div className="minutes">
       {renderDigits(time.minutes)}
-    {/* <div class="first">
-      <div class="number">0</div>
-      </div>
-      <div class="second">
-      <div class="number">0</div>
-    </div> */}
   </div>
-  <div class="tick">:</div>
-  <div class="seconds">
+  <div className="tick">:</div>
+  <div className="seconds">
       {renderDigits(time.seconds)}
-    {/* <div class="first">
-      <div class="number">0</div>
-    </div>
-    <div class="second infinite">
-      <div class="number">0</div>
-    </div> */}
   </div>
 </div>
 </div>

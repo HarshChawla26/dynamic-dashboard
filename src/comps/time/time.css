@@ -1,5 +1,5 @@
 #time-box{
-    width:300px;
+    width:450px;
     height: 150px;
     background-color: #1f1f1f;
     border-radius: 6px;
@@ -38,10 +38,11 @@
   
   .clock > div {
     display: flex;
+    margin-top: 25px;
   }
   
   .tick {
-    line-height: 17vh;
+    line-height: 7vh;
   }
   
   .tick-hidden {

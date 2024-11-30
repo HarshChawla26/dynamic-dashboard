@@ -2,4 +2,9 @@
     /* border: 1px solid red;; */
     height:90%;
     background-color: #c3bef7;
+    padding:10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
+
